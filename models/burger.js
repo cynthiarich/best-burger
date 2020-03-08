@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
           len: [1]
         }
       },
-      burgerToppings: {
+      burgerDesc: {
         type: DataTypes.STRING,
         allowNull: true,
         validate: {
@@ -37,10 +37,12 @@ module.exports = (sequelize, DataTypes) => {
       },
       upVotes: {
         type: DataTypes.INTEGER,
+        defaultValue: 0,
         allowNull: true,
       },
       downVotes: {
         type: DataTypes.INTEGER,
+        defaultValue: 0,
         allowNull: true,
       }
     });

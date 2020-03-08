@@ -1,0 +1,117 @@
+<div class="row mt-5 px-3">
+    <div class="col-lg-3 col-md-12 border-right bg-white pl-4 mb-4">
+        <div class="text-center">
+            <img class="image-fluid my-4" src="../assets/img/burger.gif" style="height:150px;" />
+        </div>
+        <h2>Share your dream burger</h2>
+        <form class="mb-3" id="burger-builder">
+            <div class="form-group">
+                <label for="burgerName">Give it a great name:</label>
+                <input type="text" class="form-control" id="burgerName">
+                <small id="nameHelp" class="form-text text-muted">Great burgers start with great names ... give
+                    yours one!</small>
+            </div>
+            <div class="form-group">
+                <select class="custom-select" id="burgerMeat">
+                    <option selected>Meat...</option>
+                    <option value="beef">Beef</option>
+                    <option value="turkey">Turkey</option>
+                    <option value="salmon">Salmon</option>
+                    <option value="bison">Bison</option>
+                    <option value="bean">Bean</option>
+                    <option value="veggie">Veggie</option>
+                    <option value="none">None</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="custom-select" id="burgerCheese">
+                    <option selected>Cheese...</option>
+                    <option value="american">American</option>
+                    <option value="cheddar">Cheddar</option>
+                    <option value="blue-cheese">Blue cheese</option>
+                    <option value="gouda">Gouda</option>
+                    <option value="pepper-jack">Pepper jack</option>
+                    <option value="swiss">Swiss</option>
+                    <option value="none">None</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="custom-select" id="burgerBread">
+                    <option selected>Bread (or not)...</option>
+                    <option value="ciabatta">Ciabatta</option>
+                    <option value="kaiser">Kaiser</option>
+                    <option value="onion">Onion</option>
+                    <option value="potato">Potato</option>
+                    <option value="biscuit">Biscuit</option>
+                    <option value="pretzel">Pretzel</option>
+                    <option value="lettuce">Lettuce</option>
+                    <option value="none">None</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="burgerDesc">What makes this burger special:</label>
+                <textarea class="form-control" rows=3 id="burgerDesc"></textarea>
+                <small id="descHelp" class="form-text text-muted">It's time to sell it! What toppings will you
+                    include? How will you cook it?</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Share my burger</button>
+        </form>
+    </div>
+    <div class="mx-3"></div>
+    <div class="col-lg-4 col-md-12 px-2">
+        <h2 class="my-3">Popular burgers <span class="badge badge-primary">{{ popular.length }}</span></h2>
+        {{#each popular}}
+        <div class="card mt-2 shadow-sm rounded">
+            <div class="card-header">
+                <h5>{{ dataValues.burgerName }}</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ dataValues.burgerDesc }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ dataValues.burgerMeat }}</li>
+                <li class="list-group-item">{{ dataValues.burgerCheese }}</li>
+                <li class="list-group-item">{{ dataValues.burgerBread }}</li>
+            </ul>
+            <div class="card-body">
+                <div class="btn-group float-right" role="group">
+                    <button type="button" id="upvote" class="btn btn-success" data-burgerid={{ dataValues.id }}><i
+                            class="fa fa-thumbs-o-up"></i><span
+                            class="badge badge-light ml-2">{{ dataValues.upVotes }}</span></button>
+                    <button type="button" id="downvote" class="btn btn-danger" data-burgerid={{ dataValues.id }}><i
+                            class="fa fa-thumbs-o-down"></i><span
+                            class="badge badge-light ml-2">{{ dataValues.downVotes }}</span></button>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="col-lg-4 col-md-12 px-2">
+        <h2 class="my-3">Newest burgers <span class="badge badge-primary">{{ newest.length }}</span></h2>
+        {{#each newest}}
+        <div class="card mt-2 shadow-sm rounded">
+            <div class="card-header">
+                <h5>{{ dataValues.burgerName }}</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ dataValues.burgerDesc }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ dataValues.burgerMeat }}</li>
+                <li class="list-group-item">{{ dataValues.burgerCheese }}</li>
+                <li class="list-group-item">{{ dataValues.burgerBread }}</li>
+            </ul>
+            <div class="card-body">
+                <div class="btn-group float-right" role="group">
+                    <button type="button" id="upvote" class="btn btn-success" data-burgerid={{ dataValues.id }}><i
+                            class="fa fa-thumbs-o-up"></i><span
+                            class="badge badge-light ml-2">{{ dataValues.upVotes }}</span></button>
+                    <button type="button" id="downvote" class="btn btn-danger" data-burgerid={{ dataValues.id }}><i
+                            class="fa fa-thumbs-o-down"></i><span
+                            class="badge badge-light ml-2">{{ dataValues.downVotes }}</span></button>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
