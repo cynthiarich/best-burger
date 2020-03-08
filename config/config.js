@@ -13,7 +13,7 @@ module.exports =
   "production": {
     "username": process.env.DB_USER,
     "password": process.env.DB_PASS,
-    "database": process.env.CLEARDB_DATABASE_URL,
+    "database": process.env.JAWSDB_URL,
     "host": process.env.DB_HOST,
     "dialect": "mysql"
   }
